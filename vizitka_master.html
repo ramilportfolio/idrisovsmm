@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Визитка частного мастера — демо</title>
+<style>
+:root{--ink:#14181f;--acc:#4c5bf0;--bg:#f5f7fb;--card:#fff;--mut:#525d6f;--line:#e1e7f0}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:540px;margin:0 auto;padding:16px 16px 40px}
+.demo{background:#fff3cd;border:1px solid #f1d98a;border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:12px}
+.top{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.ava{width:68px;height:68px;border-radius:50%;object-fit:cover}
+.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+input,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;margin:6px 0}
+.btn{width:100%;padding:14px;border:0;border-radius:12px;background:var(--acc);color:#fff;font:inherit;font-weight:700;cursor:pointer;margin-top:8px}
+#box{white-space:pre-wrap;background:#eef2f8;border-radius:10px;padding:12px;font-size:13px;margin-top:12px;display:none}
+</style></head><body><div class="wrap">
+<div class="demo">Демо-проект визитки частного мастера. Данные и цены условные.</div>
+<div class="card">
+  <div class="top">
+    <img class="ava" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Мастер">
+    <div><h1 style="font-size:21px;margin:0">Алина • Бровист и ламимейкер</h1><span style="color:var(--mut);font-size:14px">Студия в центре города • Опыт 4 года</span></div>
+  </div>
+  <p style="margin:0;color:var(--mut);font-size:14.5px">Естественное оформление бровей и ламинирование ресниц. Стерильные инструменты, уютная студия, чай и кофе для гостей.</p>
+</div>
+<div class="card">
+  <h3 style="margin:0 0 8px">Прайс-лист</h3>
+  <div class="row"><span>Коррекция и окрашивание бровей</span><b>900 ₽</b></div>
+  <div class="row"><span>Долговременная укладка бровей</span><b>1 300 ₽</b></div>
+  <div class="row"><span>Ламинирование ресниц + ботокс</span><b>1 600 ₽</b></div>
+  <div class="row"><span>Комплекс «Брови + Ресницы»</span><b>2 500 ₽</b></div>
+</div>
+<div class="card">
+  <h3 style="margin:0 0 8px">Быстрая запись в Telegram</h3>
+  <select id="srv">
+    <option>Коррекция и окрашивание бровей — 900 ₽</option>
+    <option>Долговременная укладка бровей — 1 300 ₽</option>
+    <option>Ламинирование ресниц — 1 600 ₽</option>
+    <option>Комплекс «Брови + Ресницы» — 2 500 ₽</option>
+  </select>
+  <input id="nm" placeholder="Ваше имя">
+  <input id="ph" type="tel" placeholder="+7 ___ ___-__-__">
+  <button class="btn" id="send">Записаться к мастеру</button>
+  <div id="box"></div>
+</div></div>
+<script>
+document.getElementById("send").onclick=()=>{
+  const n=document.getElementById("nm").value.trim(),p=document.getElementById("ph").value.trim(),s=document.getElementById("srv").value;
+  if(n.length<2||p.replace(/\D/g,"").length<10){alert("Укажите имя и телефон");return}
+  const b=document.getElementById("box");b.style.display="block";
+  b.textContent=`Демо-режим, так запись придёт мастеру в Telegram:\n\nКлиент: ${n}\nТелефон: ${p}\nУслуга: ${s}`;
+};
+</script></body></html>
