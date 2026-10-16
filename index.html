@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Рамиль — Разработка сайтов, калькуляторов и Telegram-ботов для бизнеса</title>
+  <title>Разработка сайтов, калькуляторов и Telegram-ботов для бизнеса</title>
   <meta name="description" content="Делаю одностраничные сайты, калькуляторы, квизы и Telegram-ботов для малого бизнеса в Стерлитамаке и по всей России. Заявки напрямую в Telegram без абонплаты.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -184,14 +184,14 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 22px;
+      padding: 12px 20px;
       border-radius: 12px;
       background: var(--acc);
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 15px;
-      border: 1px solid var(--acc);
+      font-size: 14.5px;
+      border: 1.5px solid var(--acc);
       cursor: pointer;
       white-space: nowrap;
       transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
@@ -209,7 +209,7 @@
     .btn.alt {
       background: var(--card);
       color: var(--ink);
-      border: 1px solid var(--line);
+      border: 1.5px solid var(--line);
     }
 
     .btn.alt:hover {
@@ -241,6 +241,7 @@
       min-width: 0;
     }
 
+    /* Гео-бейдж строго в одну строку на любых экранах */
     .geo-tag {
       display: inline-flex;
       align-items: center;
@@ -994,12 +995,12 @@
       color: var(--ink);
     }
 
-    /* 8. Контакты */
+    /* 8. Контакты (без верхнего текстового блока, ровная сетка) */
     .contact-box {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 32px;
+      padding: 28px;
       box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
@@ -1015,36 +1016,9 @@
       background: linear-gradient(90deg, var(--acc), #38bdf8, var(--acc));
     }
 
-    .contact-top {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding-bottom: 24px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .contact-top-text {
-      max-width: 580px;
-      min-width: 0;
-    }
-
-    .contact-top-text h2 {
-      margin: 0 0 8px;
-      font-size: clamp(24px, 3.5vw, 30px);
-    }
-
-    .contact-top-text p {
-      margin: 0;
-      color: var(--mut);
-      font-size: 16px;
-    }
-
     .contact-cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
 
@@ -1061,6 +1035,10 @@
       min-width: 0;
       cursor: pointer;
       transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+    }
+
+    .contact-item.full-row {
+      grid-column: 1 / -1;
     }
 
     .contact-item:hover {
@@ -1221,9 +1199,6 @@
       .price-card:last-child {
         grid-column: span 6;
       }
-      .contact-cards {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 760px) {
@@ -1232,8 +1207,12 @@
       }
       .about-grid,
       .skills-grid,
-      .price-grid {
+      .price-grid,
+      .contact-cards {
         grid-template-columns: 1fr;
+      }
+      .contact-item.full-row {
+        grid-column: span 1;
       }
       .price-card,
       .price-card:nth-child(4),
@@ -1293,7 +1272,7 @@
 <body>
 
   <div id="banner" hidden>
-    Не забудьте заменить данные в блоке CONFIG внизу файла: имя, Telegram, VK. Эта плашка исчезнет сама.
+    Не забудьте заменить данные в блоке CONFIG внизу файла: имя, Telegram, VK, Max, WhatsApp. Эта плашка исчезнет сама.
   </div>
 
   <!-- Навигация -->
@@ -1304,7 +1283,7 @@
         <span id="navName">Рамиль</span>
       </a>
       <nav class="nav-links">
-        <a href="#portfolio">Портфолио (11)</a>
+        <a href="#portfolio">Портфолио (12)</a>
         <a href="#how-it-works">Как приходят заявки</a>
         <a href="#services">Цены</a>
         <a href="#calc-section">Калькулятор</a>
@@ -1313,7 +1292,7 @@
       </nav>
       <div class="nav-right">
         <button class="theme-toggle" id="themeBtn" type="button" title="Сменить тему" aria-label="Сменить тему">◐</button>
-        <a class="btn sm" id="navCta" href="#">Связаться</a>
+        <a class="btn sm" id="navCta" href="https://t.me/spayfismm" target="_blank" rel="noopener">Связаться</a>
       </div>
     </div>
   </header>
@@ -1335,9 +1314,11 @@
           Делаю одностраничные сайты, интерактивные калькуляторы, квизы и Telegram-ботов для малого бизнеса в Стерлитамаке. Быстро, по фиксированной цене.
         </p>
         <div class="hero-actions">
-          <a class="btn" id="tg" href="#" target="_blank" rel="noopener">Написать в Telegram →</a>
-          <a class="btn alt" id="vk" href="#" target="_blank" rel="noopener">Профиль ВКонтакте</a>
-          <a class="btn alt" href="#portfolio">Смотреть 11 работ ↓</a>
+          <a class="btn" id="contactMaxBtnHead" href="https://max.ru/spayfismm" target="_blank" rel="noopener">Написать в Max</a>
+          <a class="btn" id="contactWaBtnHead" href="https://wa.me/79000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="btn" id="tg" href="https://t.me/spayfismm" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn" id="vk" href="https://vk.ru/id449983999" target="_blank" rel="noopener">Страница ВКонтакте</a>
+          <a class="btn alt" href="#portfolio">Смотреть 12 работ ↓</a>
         </div>
         <div class="hero-guarantees">
           <span>Без абонентской платы (0 ₽/мес)</span>
@@ -1349,7 +1330,7 @@
       <aside class="hero-card">
         <div class="profile-top">
           <div class="avatar-wrap">
-            <img class="avatar" id="avatarImg" src="" alt="Рамиль">
+            <img class="avatar" id="avatarImg" src="" alt="Аватар">
           </div>
           <div>
             <h2 id="cardName">Рамиль</h2>
@@ -1361,7 +1342,7 @@
         </p>
         <div class="hero-stats">
           <div class="stat-box">
-            <b>11+</b>
+            <b>12+</b>
             <small>рабочих демо-проектов ниже</small>
           </div>
           <div class="stat-box">
@@ -1417,7 +1398,7 @@
           <p>Это рабочие демо-проекты: нажмите «Предпросмотр» для быстрого просмотра прямо здесь или «Открыть демо →» для перехода на страницу.</p>
         </div>
         <div class="filter-bar" id="filterBar">
-          <button class="filter-btn active" data-cat="all">Все работы (11)</button>
+          <button class="filter-btn active" data-cat="all">Все работы (12)</button>
           <button class="filter-btn" data-cat="calc">Калькуляторы и квизы</button>
           <button class="filter-btn" data-cat="site">Сайты и меню</button>
           <button class="filter-btn" data-cat="promo">CRM и акции</button>
@@ -1607,30 +1588,35 @@
       </div>
     </section>
 
-    <!-- 8. Контакты и ссылки на соцсети -->
+    <!-- 8. Контакты (без верхнего текстового блока, только карточки) -->
     <section id="contacts">
       <div class="contact-box">
-        <div class="contact-top">
-          <div class="contact-top-text">
-            <h2>Свяжитесь со мной</h2>
-            <p>Напишите в Telegram или ВКонтакте — расскажите о своей задаче, и я предложу решение с точной стоимостью и сроками.</p>
-          </div>
-          <div class="hero-actions" style="margin-bottom:0; width:auto">
-            <a class="btn" id="contactTgBtn" href="#" target="_blank" rel="noopener">Написать в Telegram →</a>
-            <a class="btn alt" id="contactVkBtn" href="#" target="_blank" rel="noopener">Открыть ВК</a>
-          </div>
-        </div>
-
         <div class="contact-cards">
-          <a class="contact-item" id="contactTgRow" href="#" target="_blank" rel="noopener">
-            <span class="contact-item-label">Мессенджер (основной)</span>
+          <a class="contact-item" id="contactMaxRow" href="https://max.ru/spayfismm" target="_blank" rel="noopener">
+            <span class="contact-item-label">Мессенджер Max</span>
             <span class="contact-item-val">
-              <span id="contactTgLabel">Telegram: @spayfismm</span>
+              <span id="contactMaxLabel">Написать в Max</span>
               <span class="contact-item-arrow">→</span>
             </span>
           </a>
 
-          <a class="contact-item" id="contactVkRow" href="#" target="_blank" rel="noopener">
+          <a class="contact-item" id="contactWaRow" href="https://wa.me/79000000000" target="_blank" rel="noopener">
+            <span class="contact-item-label">WhatsApp</span>
+            <span class="contact-item-val">
+              <span id="contactWaLabel">Написать в WhatsApp</span>
+              <span class="contact-item-arrow">→</span>
+            </span>
+          </a>
+
+          <a class="contact-item" id="contactTgRow" href="https://t.me/spayfismm" target="_blank" rel="noopener">
+            <span class="contact-item-label">Telegram</span>
+            <span class="contact-item-val">
+              <span id="contactTgLabel">Написать в Telegram</span>
+              <span class="contact-item-arrow">→</span>
+            </span>
+          </a>
+
+          <a class="contact-item" id="contactVkRow" href="https://vk.ru/id449983999" target="_blank" rel="noopener">
             <span class="contact-item-label">Социальная сеть</span>
             <span class="contact-item-val">
               <span>Страница ВКонтакте</span>
@@ -1638,7 +1624,7 @@
             </span>
           </a>
 
-          <a class="contact-item" id="contactMailRow" href="mailto:idrisov.smm@gmail.com" title="Нажмите, чтобы скопировать почту">
+          <a class="contact-item full-row" id="contactMailRow" href="mailto:idrisov.smm@gmail.com" title="Нажмите, чтобы скопировать почту">
             <span class="contact-item-label">Почта для документов</span>
             <span class="contact-item-val">
               <span id="contactMailLabel">idrisov.smm@gmail.com</span>
@@ -1690,6 +1676,10 @@
       // Чтобы поставить своё фото, положите файл my-photo.jpg рядом с index.html и напишите avatar: "my-photo.jpg"
       avatar: "",
       telegram: "spayfismm",
+      whatsapp: "79613626062", // Укажите ваш номер WhatsApp (только цифры, например 79170000000)
+      whatsappLabel: "Написать в WhatsApp",
+      max: "https://max.ru/u/f9LHodD0cOKUT9Qx7M8l7-z1B5b1mJChwpyNh470i044B4hqYtEhpy00MMc", // Укажите вашу ссылку на профиль в Max
+      maxLabel: "Написать в Max",
       vk: "https://vk.ru/id449983999",
       email: "idrisov.smm@gmail.com"
     };
@@ -1709,7 +1699,7 @@
     }
 
     // =========================================================================
-    // 2. СПИСОК ПРОЕКТОВ ПОРТФОЛИО
+    // 2. СПИСОК ПРОЕКТОВ ПОРТФОЛИО (12 ПРОЕКТОВ)
     // =========================================================================
     const PROJECTS = [
       {
@@ -1810,6 +1800,15 @@
         tag: "Промо",
         thumb: "thumbs/otkrytka.png",
         fallbackImg: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        title: "Калькулятор химчистки мебели",
+        desc: "Выездная чистка диванов и матрасов: выбор мест, обивки и сушки с заявкой в Telegram.",
+        href: "calc_himchistka.html",
+        cat: "calc",
+        tag: "Калькулятор",
+        thumb: "thumbs/himchistka.png",
+        fallbackImg: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80"
       }
     ];
 
@@ -1818,6 +1817,8 @@
 
     const tgLink = hasPlaceholders ? "#" : "https://t.me/" + CONFIG.telegram;
     const vkLink = CONFIG.vk.includes("[") ? "#" : CONFIG.vk;
+    const maxLink = CONFIG.max.includes("[") ? "#" : CONFIG.max;
+    const waLink = CONFIG.whatsapp.includes("[") ? "#" : "https://wa.me/" + CONFIG.whatsapp.replace(/\D/g, "");
 
     document.getElementById("navName").textContent = CONFIG.name;
     document.getElementById("cardName").textContent = CONFIG.name;
@@ -1833,24 +1834,44 @@
 
     document.getElementById("yearNow").textContent = new Date().getFullYear();
 
-    ["tg", "navCta", "contactTgBtn", "contactTgRow"].forEach(id => {
-      document.getElementById(id).href = tgLink;
+    // Безопасная привязка ссылок (с проверкой существования элемента)
+    ["tg", "navCta", "contactTgRow"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = tgLink;
     });
-    ["vk", "contactVkBtn", "contactVkRow"].forEach(id => {
-      document.getElementById(id).href = vkLink;
+    ["contactMaxBtnHead", "contactMaxRow"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = maxLink;
+    });
+    ["contactWaBtnHead", "contactWaRow"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = waLink;
+    });
+    ["vk", "contactVkRow"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.href = vkLink;
     });
 
-    document.getElementById("contactTgLabel").textContent = "Telegram: @" + CONFIG.telegram;
+    document.getElementById("contactTgLabel").textContent = "Написать в Telegram";
+    document.getElementById("contactMaxLabel").textContent = CONFIG.maxLabel;
+    document.getElementById("contactWaLabel").textContent = CONFIG.whatsappLabel;
     document.getElementById("contactMailRow").href = "mailto:" + CONFIG.email;
     document.getElementById("contactMailLabel").textContent = CONFIG.email;
 
+    // Индивидуальная отправка для каждой карточки цен
     document.querySelectorAll(".price-order-link").forEach(link => {
       const itemTitle = link.getAttribute("data-order");
-      const msg = "Здравствуйте, " + CONFIG.name + "! Интересует услуга: " + itemTitle + ". Расскажите подробнее?";
-      link.href = "https://t.me/" + CONFIG.telegram + "?text=" + encodeURIComponent(msg);
+      const msg = "Здравствуйте! Интересует услуга: " + itemTitle + ". Расскажите подробнее?";
+      const targetUrl = "https://t.me/" + CONFIG.telegram + "?text=" + encodeURIComponent(msg);
+      link.href = targetUrl;
       link.target = "_blank";
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.open(targetUrl, "_blank");
+      });
     });
 
+    // Копирование почты
     document.getElementById("contactMailRow").addEventListener("click", function (e) {
       if (navigator.clipboard) {
         e.preventDefault();
@@ -1862,6 +1883,7 @@
       }
     });
 
+    // Отрисовка 12 карточек портфолио
     const gridEl = document.getElementById("projectsGrid");
     function renderProjects(category = "all") {
       gridEl.innerHTML = "";
@@ -1902,6 +1924,7 @@
       });
     });
 
+    // Модальное окно предпросмотра
     const modal = document.getElementById("previewModal");
     const modalFrame = document.getElementById("modalFrame");
     function openModal(href, title) {
@@ -1917,6 +1940,7 @@
     document.getElementById("modalCloseBtn").addEventListener("click", closeModal);
     modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
 
+    // Интерактивный калькулятор сметы
     const EST_DATA = [
       { name: "Сайт-визитка с формой заявки и картой", price: 4000, days: 4, on: true },
       { name: "Калькулятор стоимости или квиз-опросник", price: 3000, days: 2, on: false },
@@ -1965,7 +1989,7 @@
       }
       const biz = document.getElementById("estBusiness").value.trim() || "Не указана";
       const total = selected.reduce((a, b) => a + b.price, 0);
-      const text = `Здравствуйте, ${CONFIG.name}! Посчитал проект на вашем сайте:\n` +
+      const text = `Здравствуйте! Посчитал проект на вашем сайте:\n` +
         selected.map(x => `• ${x.name} (${x.price} ₽)`).join("\n") +
         `\n\nСфера бизнеса: ${biz}\nОриентировочно: ${total.toLocaleString("ru-RU")} ₽`;
       window.open("https://t.me/" + CONFIG.telegram + "?text=" + encodeURIComponent(text), "_blank");
